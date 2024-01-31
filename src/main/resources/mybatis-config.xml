@@ -3,7 +3,6 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <!-- alias="member" => 별칭을 설정해주면 Mapper에서 별명을 사용 할 수 있다 -->
         <typeAlias type="com.codingrecipe.member.dto.MemberDTO" alias="member"></typeAlias>
     </typeAliases>
 </configuration>

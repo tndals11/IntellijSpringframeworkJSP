@@ -4,9 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter // getter 생성
-@Setter // setter 생성
-@ToString // tostriong 생성
+@Getter
+@Setter
+@ToString
 public class MemberDTO {
     private Long id;
     private String memberEmail;

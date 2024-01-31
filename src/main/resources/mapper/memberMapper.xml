@@ -7,4 +7,32 @@
         insert into member_table(memberEmail, memberPassword, memberName, memberAge, memberMobile)
         values (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberAge}, #{memberMobile})
     </insert>
+
+    <!-- select 문을 사용할때는 resultType을 명시해준다. -->
+    <select id="login" parameterType="member" resultType="member">
+        select * from member_table where memberEmail=#{memberEmail} and memberPassword=#{memberPassword}
+    </select>
+
+    <!-- parameterType이 필요없다 받아올 값이 있을때만 사용 -->
+    <select id="findAll" resultType="member">
+        select * from member_table
+    </select>
+
+    <select id="findById" parameterType="Long" resultType="member">
+        select * from member_table where id = #{id}
+    </select>
+
+    <delete id="delete" parameterType="Long">
+        delete from member_table where id = #{id}
+    </delete>
+
+    <select id="findByMemberEmail" parameterType="String" resultType="member">
+        select * from member_table where memberEmail = #{loginEmail}
+    </select>
+
+    <update id="update" parameterType="member">
+        <!-- 여러개를 수정할 때는 and가 아니라 ,를 사용해야한다       -->
+        update member_table set memberAge = #{memberAge}, memberMobile=#{memberMobile}
+        where id = #{id}
+    </update>
 </mapper>
